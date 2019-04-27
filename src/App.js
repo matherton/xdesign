@@ -5,6 +5,17 @@ import './App.css';
 
 const a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
+const getSpaceXData = fetch('https://api.spacexdata.com/v3/launches')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+    console.log(JSON.stringify(myJson));
+  });
+
+const requestURL = `curl -s https://api.spacexdata.com/v3/launches/latest | jq`;
+console.log(getSpaceXData);
+
 function App() {
   return (
     <div className="App">
