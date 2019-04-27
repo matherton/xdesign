@@ -42,6 +42,7 @@
   justify-content: left;
   font-size: calc(10px + 2vmin);
   color: black;
+  margin-bottom: 2em;
 }
 
 .page-title {
@@ -54,6 +55,30 @@
 
 .App-main {
 
+}
+
+.Data-holder {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Filter-btns {
+  display: block;
+}
+
+.launches {
+  position: absolute;
+  margin-top: 2em;
+  list-style: none;
+  width: 50%;
+}
+
+.launches li {
+  height: 4em;
+  margin: 1em;
+  border-radius: 1em;
+  box-shadow: rgb(204, 204, 204) 0px 7px 5px 0px;
+  border: 1px solid #CCCCCC;
 }
 
 .App-logo {
