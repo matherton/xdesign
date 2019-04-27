@@ -5,8 +5,6 @@ import './App.css';
 
 const a = [1, 10, 100, 1000, 10000, 10000, 10000, 10000, 10000, 10000];
 
-//const baseURL = 'https://api.spacexdata.com/v3';
-
 function App() {
   return (
     <div className="App">
