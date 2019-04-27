@@ -3,7 +3,9 @@ import logo from './assets/spacex-logo.png';
 import reload from './assets/img/refresh.png';
 import './App.css';
 
-const a = [1, 10, 100, 1000, 10000];
+const a = [1, 10, 100, 1000, 10000, 10000, 10000, 10000, 10000, 10000];
+
+//const baseURL = 'https://api.spacexdata.com/v3';
 
 function App() {
   return (
@@ -24,9 +26,12 @@ function App() {
       <main className="App-main">
 
         <div className="Data-holder">
+
           <div className="Filter-btns">
-            <button>Filter by Year</button> <button>Sort Descending</button>
+            <button className="filter">Filter by Year</button>
+            <button className="sort">Sort Descending</button>
           </div>
+
           <ul className="launches">
             {a.map(i => {
               return <li>{i}</li>
