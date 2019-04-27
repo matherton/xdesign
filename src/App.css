@@ -40,7 +40,7 @@
   flex-direction: column;
   align-items: left;
   justify-content: left;
-  font-size: calc(10px + 2vmin);
+  font-size: 1rem;
   color: black;
   margin-bottom: 2em;
 }
@@ -89,6 +89,14 @@
   border-radius: 1em;
   box-shadow: rgb(204, 204, 204) 0px 7px 5px 0px;
   border: 1px solid #CCCCCC;
+}
+
+.launches li span {
+  position: relative;
+  float: left;
+  font-size: 1.5em;
+  top: .5em;
+  left: .5em;
 }
 
 button {

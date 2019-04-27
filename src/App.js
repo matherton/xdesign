@@ -3,7 +3,7 @@ import logo from './assets/spacex-logo.png';
 import reload from './assets/img/refresh.png';
 import './App.css';
 
-const a = [1, 10, 100, 1000, 10000, 10000, 10000, 10000, 10000, 10000];
+const a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 function App() {
   return (
@@ -32,7 +32,12 @@ function App() {
 
           <ul className="launches">
             {a.map(i => {
-              return <li>{i}</li>
+              return <li>
+                      <span className="Result-no">#{i}</span>
+                      <span className="Result-no">mission_name</span>
+                      <span className="Result-no">mission_date</span>
+                      <span className="Result-no">rocket_name</span>
+                    </li>
             })}
           </ul>
 
