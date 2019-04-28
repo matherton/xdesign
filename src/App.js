@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('https://api.spacexdata.com/v3/launches')
+    fetch('https://api.spacexdata.com/v3/launches?limit=10')
       .then(res => res.json())
       .then(json => {
         this.setState({
@@ -59,14 +59,19 @@ class App extends Component {
               </div>
 
               <ul className="launches">
-                {Object.keys(items).map(item => {
+                {
+                  Object.keys(items).map(item => {
                   return <li key={item}>
-                          <span className="Result-no">#{item}</span>
-                          <span className="Result-no">mission_name</span>
-                          <span className="Result-no">mission_date</span>
-                          <span className="Result-no">rocket_name</span>
+                          <span className="Result-no">{this.state.items[item].flight_number}</span>
+                          <span className="Result-no">{this.state.items[item].mission_name}</span>
+                          <span className="Result-no">{this.state.items[item].launch_date_local}</span>
+                          <span className="Result-no">{this.state.items[item].rocket.rocket_name}</span>
                         </li>
                 })}
+                {console.log('The returned Object', items)}
+                {console.log('The state', this.state.items[0].mission_name)}
+                {console.log('the state mission date', this.state.items[0].mission_date)}
+                {console.log(this.state.items[0].rocket_name)}
               </ul>
 
             </div>
