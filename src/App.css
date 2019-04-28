@@ -89,6 +89,7 @@
   border-radius: 1em;
   box-shadow: rgb(204, 204, 204) 0px 7px 5px 0px;
   border: 1px solid #CCCCCC;
+  position: relative;
 }
 
 .launches li span {
@@ -97,6 +98,21 @@
   font-size: 1.5em;
   top: .75em;
   margin-left: .5em;
+}
+
+.launches li span.date {
+  font-size: 0.75em;
+  color: #3D4849;
+  float: right;
+  margin-right: 1em;
+}
+
+.launches li span.rocket {
+  font-size: 1em;
+  font-weight: bold;
+  position: absolute;
+  right: 1em;
+  top: 2em;
 }
 
 button {
