@@ -1,11 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import logo from './assets/spacex-logo.png';
 import reload from './assets/img/refresh.png';
 import './App.css';
 
 const a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-let connection;
 
 fetch('https://api.spacexdata.com/v3/launches')
   .then(response => {
@@ -45,52 +43,82 @@ console.log("wonder if this will get owt?", [getData()]);
 //console.log(data);
 
 class App extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      items: [],
+      isLoaded: false,
+    };
+  }
+
+  componentDidMount() {
+    fetch('https://api.spacexdata.com/v3/launches')
+      .then(res => res.json())
+      .then(json => {
+        this.setState({
+          isLoaded: true,
+          items: json,
+        })
+      });
+  }
+
   render() {
-    return (
-      <div className="App">
 
-        <header className="App-header">
+    var { isLoaded, items} = this.state;
 
-          <div className="Page-title">
-            <img src={logo} className="logo" alt="space x" /> LAUNCHES
-          </div>
+    if(!isLoaded) {
+      return <div>Loading....</div>;
+    }
 
-          <div className="Reload-data">
-            Reload Data <span><img src={reload} alt="" /></span>
-          </div>
-          
-        </header>
+    else {
 
-        <main className="App-main">
+      return (
+        <div className="App">
 
-          <div className="Data-holder">
+          <header className="App-header">
 
-            <div className="Filter-btns">
-              <button className="filter">Filter by Year</button>
-              <button className="sort">Sort Descending</button>
+            <div className="Page-title">
+              <img src={logo} className="logo" alt="space x" /> LAUNCHES
             </div>
 
-            <ul className="launches">
-              {a.map(i => {
-                return <li>
-                        <span className="Result-no">#{i}</span>
-                        <span className="Result-no">mission_name</span>
-                        <span className="Result-no">mission_date</span>
-                        <span className="Result-no">rocket_name</span>
-                      </li>
-              })}
-            </ul>
+            <div className="Reload-data">
+              Reload Data <span><img src={reload} alt="" /></span>
+            </div>
+            
+          </header>
 
-          </div>
+          <main className="App-main">
 
-        </main>
+            <div className="Data-holder">
 
-        <footer className="App-footer">
-          
-        </footer>
+              <div className="Filter-btns">
+                <button className="filter">Filter by Year</button>
+                <button className="sort">Sort Descending</button>
+              </div>
 
-      </div>
-    );
+              <ul className="launches">
+                {Object.keys(items).map(item => {
+                  return <li key={item}>
+                          <span className="Result-no">#{item}</span>
+                          <span className="Result-no">mission_name</span>
+                          <span className="Result-no">mission_date</span>
+                          <span className="Result-no">rocket_name</span>
+                        </li>
+                })}
+              </ul>
+
+            </div>
+
+          </main>
+
+          <footer className="App-footer">
+            
+          </footer>
+
+        </div>
+      );
+    }
   }
 }
 
