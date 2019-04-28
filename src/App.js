@@ -27,7 +27,8 @@ class App extends Component {
   render() {
 
     var { isLoaded, items} = this.state;
-
+    let formattedTime = '';
+    
     if(!isLoaded) {
       return <div>Loading....</div>;
     }
@@ -40,7 +41,8 @@ class App extends Component {
           <header className="App-header">
 
             <div className="Page-title">
-              <img src={logo} className="logo" alt="space x" /> LAUNCHES
+              <img src={logo} className="logo" alt="space x" />
+              <span>LAUNCHES</span>
             </div>
 
             <div className="Reload-data">
@@ -64,14 +66,11 @@ class App extends Component {
                   return <li key={item}>
                           <span className="Result-no">{this.state.items[item].flight_number}</span>
                           <span className="Result-no">{this.state.items[item].mission_name}</span>
-                          <span className="Result-no">{this.state.items[item].launch_date_local}</span>
-                          <span className="Result-no">{this.state.items[item].rocket.rocket_name}</span>
+                          <span className="date">{this.state.items[item].launch_date_local}</span>
+                          <span className="rocket">{this.state.items[item].rocket.rocket_name}</span>
                         </li>
                 })}
                 {console.log('The returned Object', items)}
-                {console.log('The state', this.state.items[0].mission_name)}
-                {console.log('the state mission date', this.state.items[0].mission_date)}
-                {console.log(this.state.items[0].rocket_name)}
               </ul>
 
             </div>

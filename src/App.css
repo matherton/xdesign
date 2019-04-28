@@ -14,6 +14,10 @@
   color: #505050;
 }
 
+.Page-title span {
+  margin-left: -1em;
+}
+
 .logo {
   height: 25px; 
   width: auto;
