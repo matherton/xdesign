@@ -27,7 +27,6 @@ class App extends Component {
   render() {
 
     var { isLoaded, items} = this.state;
-    let formattedTime = '';
     
     if(!isLoaded) {
       return <div>Loading....</div>;
@@ -66,7 +65,7 @@ class App extends Component {
                   return <li key={item}>
                           <span className="flight">#{this.state.items[item].flight_number}</span>
                           <span className="name">{this.state.items[item].mission_name}</span>
-                          <span className="date">{this.state.items[item].launch_date_local}</span>
+                          <span className="date">{(this.state.items[item].launch_date_local).slice(0,10)}</span>
                           <span className="rocket">{this.state.items[item].rocket.rocket_name}</span>
                         </li>
                 })}
