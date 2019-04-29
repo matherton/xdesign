@@ -97,11 +97,15 @@
   float: left;
   font-size: 1.5em;
   top: .75em;
-  margin-left: .5em;
+}
+
+.launches li span.flight {
+  width: 2.75em;
+  padding-right: .5em;
 }
 
 .launches li span.name {
-  margin-left: 2em;
+  /*margin-left: 2em;*/
 }
 
 .launches li span.date {
