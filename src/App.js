@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      items: [],
+      flights: [],
       isLoaded: false,
     };
   }
@@ -19,14 +19,20 @@ class App extends Component {
       .then(json => {
         this.setState({
           isLoaded: true,
-          items: json,
+          flights: json,
         })
       });
   }
 
+  sortByPriceDesc() {
+      this.setState(prevState => {
+        this.state.products.sort((a, b) => (b.price - a.price))
+    });
+  }
+
   render() {
 
-    var { isLoaded, items} = this.state;
+    var { isLoaded, flights} = this.state;
     
     if(!isLoaded) {
       return <div>Loading....</div>;
@@ -61,15 +67,15 @@ class App extends Component {
 
               <ul className="launches">
                 {
-                  Object.keys(items).map(item => {
-                  return <li key={item}>
-                          <span className="flight">#{this.state.items[item].flight_number}</span>
-                          <span className="name">{this.state.items[item].mission_name}</span>
-                          <span className="date">{(this.state.items[item].launch_date_local).slice(0,10)}</span>
-                          <span className="rocket">{this.state.items[item].rocket.rocket_name}</span>
+                  Object.keys(flights).map(flight => {
+                  return <li key={flight}>
+                          <span className="flight">#{this.state.flights[flight].flight_number}</span>
+                          <span className="name">{this.state.flights[flight].mission_name}</span>
+                          <span className="date">{(this.state.flights[flight].launch_date_local).slice(0,10)}</span>
+                          <span className="rocket">{this.state.flights[flight].rocket.rocket_name}</span>
                         </li>
                 })}
-                {console.log('The returned Object', items)}
+                {console.log('The returned Object', flights)}
               </ul>
 
             </div>
