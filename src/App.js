@@ -44,9 +44,9 @@ class App extends Component {
               <span>LAUNCHES</span>
             </div>
 
-            <div className="Reload-data">
+            <a href='/' className="Reload-data">
               Reload Data <span><img src={reload} alt="" /></span>
-            </div>
+            </a>
             
           </header>
 
