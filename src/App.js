@@ -10,7 +10,12 @@ class App extends Component {
     this.state = {
       flights: [],
       isLoaded: false,
+      reverse: false,
     };
+  }
+
+  toggleReverse = (state) => {
+    this.setState({reverse: state || !this.state.reverse});
   }
 
   componentDidMount() {
@@ -22,12 +27,6 @@ class App extends Component {
           flights: json,
         })
       });
-  }
-
-  sortByPriceDesc() {
-      this.setState(prevState => {
-        this.state.products.sort((a, b) => (b.price - a.price))
-    });
   }
 
   render() {
@@ -61,22 +60,39 @@ class App extends Component {
             <div className="Data-holder">
 
               <div className="Filter-btns">
-                <button className="filter">Filter by Year</button>
-                <button className="sort">Sort Descending</button>
+                <button onClick={() => this.toggleReverse()}
+                 className="filter">Filter by Year</button>
+                <button onClick={() => this.toggleReverse()}
+                  className="sort">Sort Descending</button>
               </div>
 
-              <ul className="launches">
-                {
-                  Object.keys(flights).map(flight => {
-                  return <li key={flight}>
-                          <span className="flight">#{this.state.flights[flight].flight_number}</span>
-                          <span className="name">{this.state.flights[flight].mission_name}</span>
-                          <span className="date">{(this.state.flights[flight].launch_date_local).slice(0,10)}</span>
-                          <span className="rocket">{this.state.flights[flight].rocket.rocket_name}</span>
-                        </li>
-                })}
-                {console.log('The returned Object', flights)}
-              </ul>
+              { !this.state.reverse &&
+                <ul className="launches">
+                  {
+                    Object.keys(flights).map(flight => {
+                    return <li key={flight}>
+                            <span className="flight">#{this.state.flights[flight].flight_number}</span>
+                            <span className="name">{this.state.flights[flight].mission_name}</span>
+                            <span className="date">{(this.state.flights[flight].launch_date_local).slice(0,10)}</span>
+                            <span className="rocket">{this.state.flights[flight].rocket.rocket_name}</span>
+                          </li>
+                  })}
+                </ul>
+              }
+
+              { this.state.reverse &&
+                <ul className="launches">
+                  {
+                    Object.keys(flights).map(flight => {
+                    return <li key={flight}>
+                            <span className="flight">#{this.state.flights[flight].flight_number}</span>
+                            <span className="name">{this.state.flights[flight].mission_name}</span>
+                            <span className="date">{(this.state.flights[flight].launch_date_local).slice(0,10)}</span>
+                            <span className="rocket">{this.state.flights[flight].rocket.rocket_name}</span>
+                          </li>
+                  }).reverse()}
+                </ul>
+              }
 
             </div>
 
