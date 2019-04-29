@@ -65,7 +65,7 @@ class App extends Component {
                   Object.keys(items).map(item => {
                   return <li key={item}>
                           <span className="Result-no">{this.state.items[item].flight_number}</span>
-                          <span className="Result-no">{this.state.items[item].mission_name}</span>
+                          <span className="name">{this.state.items[item].mission_name}</span>
                           <span className="date">{this.state.items[item].launch_date_local}</span>
                           <span className="rocket">{this.state.items[item].rocket.rocket_name}</span>
                         </li>
