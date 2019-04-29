@@ -57,10 +57,6 @@
   color: #61dafb;
 }
 
-.App-main {
-
-}
-
 .Data-holder {
   display: flex;
   justify-content: flex-end;
@@ -139,4 +135,16 @@ button {
                 transform 150ms ease;
     -webkit-appearance: none;
     -moz-appearance: none;
+}
+
+@media screen and (max-width: 840px) {
+  
+  .App-main {
+    background: none;
+  }
+
+  .launches {
+    width: 89%;
+  }
+
 }
