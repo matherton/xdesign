@@ -10,8 +10,13 @@ class App extends Component {
     this.state = {
       flights: [],
       isLoaded: false,
+      year: false,
       reverse: false,
     };
+  }
+
+  yearSort = (state) => {
+    this.setState({year: state || !this.state.year});
   }
 
   toggleReverse = (state) => {
@@ -60,10 +65,10 @@ class App extends Component {
             <div className="Data-holder">
 
               <div className="Filter-btns">
-                <button 
+                <button onClick={() => this.yearSort()}
                  className="filter">Filter by Year</button>
                 <button onClick={() => this.toggleReverse()}
-                  className="sort" style={{ width: '163px' }}>{`${this.state.reverse ? 'Sort Ascending' : 'Sort Descending' }`}</button>
+                  className={`${this.state.reverse ? 'sorted' : 'sort' }`} style={{ width: '163px' }}>{`${this.state.reverse ? 'Sort Ascending' : 'Sort Descending' }`}</button>
               </div>
 
               { !this.state.reverse &&

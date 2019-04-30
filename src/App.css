@@ -77,6 +77,11 @@
   margin-left: 1em;
 }
 
+.sorted {
+  background: #005288 url(assets/icon/select-up.png) no-repeat bottom 22px right 10px;
+  margin-left: 1em;
+}
+
 .launches {
   position: absolute;
   margin-top: 3em;
