@@ -60,7 +60,7 @@ class App extends Component {
             <div className="Data-holder">
 
               <div className="Filter-btns">
-                <button onClick={() => this.toggleReverse()}
+                <button 
                  className="filter">Filter by Year</button>
                 <button onClick={() => this.toggleReverse()}
                   className="sort" style={{ width: '163px' }}>{`${this.state.reverse ? 'Sort Ascending' : 'Sort Descending' }`}</button>
