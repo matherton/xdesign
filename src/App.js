@@ -63,7 +63,7 @@ class App extends Component {
                 <button onClick={() => this.toggleReverse()}
                  className="filter">Filter by Year</button>
                 <button onClick={() => this.toggleReverse()}
-                  className="sort">Sort Descending</button>
+                  className="sort" style={{ width: '163px' }}>{`${this.state.reverse ? 'Sort Ascending' : 'Sort Descending' }`}</button>
               </div>
 
               { !this.state.reverse &&
